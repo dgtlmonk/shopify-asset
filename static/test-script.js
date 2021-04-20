@@ -1,2 +1,2 @@
-const msg = "hello shopify";
+const msg = 'Hello Shopify from Perkd Script!';
 console.log(msg);
