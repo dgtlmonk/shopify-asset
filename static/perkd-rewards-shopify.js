@@ -34,7 +34,10 @@
 </div>`);
 
   document.body.appendChild(el);
-  el.srcDoc = srcDoc;
+  // const _iframe = document.getElementById("smile-lite-launcher-frame");
+  // _iframe.addEventListener("load", () => {
+
+  el.srcdoc = srcDoc;
 })();
 
 (() => {
