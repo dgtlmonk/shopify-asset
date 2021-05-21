@@ -26,17 +26,18 @@
     <div id="perkd-rewards-ui-lite-launcher-frame-container">
 	    <iframe
       src="javascript:void(0);"
-      title="Perkd Rewards Program Launcher"id="perkd-lite-launcher-frame"
-             style="position:absolute;height:0;max-height:100%;max-width:100%;min-height:100%;min-width:100%;
-                    width:0;border:0;
-                    outline:0;top:0;
-                    right:0;bottom:0">
+      title="Perkd Rewards Program Launcher"
+      id="perkd-lite-launcher-frame"
+      style="position:absolute;height:0;max-height:100%;max-width:100%;min-height:100%;min-width:100%;
+      width:0;border:0;
+      outline:0;top:0;
+      right:0;bottom:0">
     </iframe>
   </div>
 </div>`);
 
   document.body.appendChild(el);
-  const iEl = document.getElementById("perkd-rewards-shopify-init");
+  const iEl = document.getElementById("perkd-lite-launcher-frame");
 
   if (iEl) {
     console.log(" perkd iframe foundi!");
