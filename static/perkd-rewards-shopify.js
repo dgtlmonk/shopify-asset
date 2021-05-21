@@ -6,7 +6,7 @@
   		<html lang="en-US">
           <head>
             <meta charset="utf-8">
-          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"name="viewport">
+          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
           	<titel></title>
           </head>
           <body>
@@ -18,14 +18,17 @@
 
   let el = document.createRange().createContextualFragment(`
     <div class="perkd-rewards-widget"
-     style="position:fixed; width:0; height:0; bottom:0;
-     right:0;
+     style="position:fixed;
+     width:60px;
+     height:60px;
+     bottom:0;
+     right:12px;
      z-index:2147483649 !important;"
      aria-live="polite"
      >
-    <div id="perkd-rewards-widget-frame-container">
-	    <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame"
-      style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"></iframe>
+    <div id="perkd-rewards-widget-frame-container" style="overflow:hidden">
+	    <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame" scrolling="no"
+      style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"/>
   </div>
 </div>`);
 
