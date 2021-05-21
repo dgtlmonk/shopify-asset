@@ -33,7 +33,7 @@
   </div>
 </div>`);
 
-  document.body.appendChild(d);
+  document.body.appendChild(el);
   el.srcDoc = srcDoc;
 })();
 
