@@ -18,13 +18,11 @@
 
   let el = document.createRange().createContextualFragment(`
     <div class="perkd-rewards-widget"
-     style="position:fixed;
-     width:0;
-     height:0;
-     bottom:0;
+     style="position:fixed; width:0; height:0; bottom:0;
      right:0;
-     z-index:2147483649!important;
-     aria-live="polite">
+     z-index:2147483649 !important;"
+     aria-live="polite"
+     >
     <div id="perkd-rewards-widget-frame-container">
 	    <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame"
       style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"></iframe>
