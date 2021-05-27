@@ -1,4 +1,10 @@
+var assetUrl =
+  "https://perkd-shopify-asset.vercel.app/static/perkd-rewards-init.js";
+
 (async () => {
+  function getElById(id) {
+    return document.getElementById(id);
+  }
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
 
@@ -33,10 +39,10 @@
 </div>`);
 
   document.body.appendChild(el);
-  const iEl = document.getElementById("perkd-rewards-widget-frame");
+  const iEl = getElById("perkd-rewards-widget-frame");
 
   if (iEl) {
-    console.log(" perkd iframe foundi");
+    console.log(" perkd iframe found");
     iEl.srcdoc = srcDoc;
   }
   // _iframe.addEventListener("load", () => {
@@ -53,17 +59,5 @@
       t.querySelector("head").appendChild(r);
   }
 
-  e("https://perkd-shopify-asset.vercel.app/static/script.js");
-
-  // let e = document.createElement("link").relList,
-  //   t = !!(e && e.supports && e.supports("prefetch"));
-  // function i(e, i = "script") {
-  //   let o = document.createElement("link");
-  //   (o.href = e),
-  //     t ? (o.rel = "prefetch") : ((o.rel = "preload"), (o.as = i)),
-  //     document.querySelector("head").appendChild(o);
-  // }
-
-  // i("https://perkd-shopify-asset.vercel.app/static/script.js");
-  // i("https://js.smile.io/style.css"),
+  e(assetUrl);
 })();
