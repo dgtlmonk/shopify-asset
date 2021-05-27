@@ -36,7 +36,7 @@
   if (isLoggedIn) {
     console.log(" calling offers api");
     // FIXME: temp proxy
-    fetch(`https://perkd-dev.ngrok.io/offers`, {
+    fetch("https://perkd-dev.ngrok.io/offers", {
       method: "GET",
       body: JSON.stringify({
         customerId,
