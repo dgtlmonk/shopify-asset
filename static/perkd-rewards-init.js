@@ -1,7 +1,3 @@
 (() => {
-
-
-
-  console.log("script.js loaded");
-  var getElById('perkd-customerID')
+  console.log("pekrd-rewards-init script loaded");
 })();

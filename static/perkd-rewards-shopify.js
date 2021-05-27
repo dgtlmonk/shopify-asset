@@ -68,6 +68,7 @@ var assetUrl =
   }
 
   var customerId = getElById("perkd-customerID").value;
+  var APIKey = getElById("perkd-APIKey").value;
   var customerFirstName = getElById("perkd-customerFirstName").value;
   var customerLastName = getElById("perkd-customerLastName").value;
   var shopName = getElById("perkd-shopName").value;
@@ -88,8 +89,7 @@ var assetUrl =
     customerId,
     shopify: true,
     shop: shopName,
-    playerTypeId: "",
-    playerAttributes: attr,
+    userAttributes: attr,
     lang: shopLocale,
     APIKey: APIKey,
   };
