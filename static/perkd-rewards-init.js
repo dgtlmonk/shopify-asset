@@ -39,7 +39,7 @@
     fetch("https://perkd-dev.ngrok.io/offers", {
       method: "POST",
       body: JSON.stringify({
-        customerId,
+        customerId: customerId,
       }),
     });
 
