@@ -87,6 +87,7 @@ var assetUrl =
 
   window.__perkd__init__ = {
     customerId,
+    isLoggedIn: customerFirstName !== undefined,
     shopify: true,
     shop: shopName,
     userAttributes: attr,
