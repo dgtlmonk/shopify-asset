@@ -43,15 +43,27 @@
 })();
 
 (() => {
-  let e = document.createElement("link").relList,
-    t = !!(e && e.supports && e.supports("prefetch"));
-
-  function i(e, i = "script") {
-    let o = document.createElement("link");
-    (o.href = e),
-      t ? (o.rel = "prefetch") : ((o.rel = "preload"), (o.as = i)),
-      document.querySelector("head").appendChild(o);
+  function e(e) {
+    var t = document,
+      r = t.createElement("script");
+    (r.type = "text/javascript"),
+      (r.async = !1),
+      (r.defer = !0),
+      (r.src = `${e}?${Math.random() * 999})`),
+      t.querySelector("head").appendChild(r);
   }
-  i("https://perkd-shopify-asset.vercel.app/static/script.js");
+
+  e("https://perkd-shopify-asset.vercel.app/static/script.js");
+
+  // let e = document.createElement("link").relList,
+  //   t = !!(e && e.supports && e.supports("prefetch"));
+  // function i(e, i = "script") {
+  //   let o = document.createElement("link");
+  //   (o.href = e),
+  //     t ? (o.rel = "prefetch") : ((o.rel = "preload"), (o.as = i)),
+  //     document.querySelector("head").appendChild(o);
+  // }
+
+  // i("https://perkd-shopify-asset.vercel.app/static/script.js");
   // i("https://js.smile.io/style.css"),
 })();
