@@ -21,15 +21,25 @@
 
   if (email && email != "") attr.email = email;
 
+  var isLoggedIn = customerId.length > 0;
+
   window.__perkd__init__ = {
     customerId,
-    isLoggedIn: customerId.length > 0,
+    isLoggedIn,
     shopify: true,
     shop: shopName,
     userAttributes: attr,
     lang: shopLocale,
     APIKey: APIKey,
   };
+
+  if (isLoggedIn) {
+    if (window.fetch) {
+      fetch(`https://${shopName}/discount/abc`, {
+        method: "GET",
+      });
+    }
+  }
 })();
 
 (() => {

@@ -55,7 +55,7 @@ var assetUrl =
     (r.type = "text/javascript"),
       (r.async = !1),
       (r.defer = !0),
-      (r.src = `${e}?${Math.random() * 999})`),
+      (r.src = `${e}?${Math.random() * 999}`),
       t.querySelector("head").appendChild(r);
   }
 
