@@ -34,11 +34,19 @@
   };
 
   if (isLoggedIn) {
-    if (window.fetch) {
-      fetch(`https://${shopName}/discount/abc`, {
-        method: "GET",
-      });
-    }
+    // FIXME: temp proxy
+    fetch(`https://perkd-dev.ngrok.io/offers`, {
+      method: "GET",
+      body: JSON.stringify({
+        customerId,
+      }),
+    });
+
+    // if (window.fetch) {
+    //   fetch(`https://${shopName}/discount/abc`, {
+    //     method: "GET",
+    //   });
+    // }
   }
 })();
 
