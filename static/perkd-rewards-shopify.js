@@ -1,6 +1,9 @@
 var assetUrl =
   "https://perkd-shopify-asset.vercel.app/static/perkd-rewards-init.js";
 
+var widgetScriptUrl =
+  "https://perkd-shopify-asset.vercel.app/static/perkd-rewards-widget.min.js";
+
 (async () => {
   function getElById(id) {
     return document.getElementById(id);
@@ -60,4 +63,18 @@ var assetUrl =
   }
 
   e(assetUrl);
+})();
+
+(() => {
+  function e(e) {
+    var t = document,
+      r = t.createElement("script");
+    (r.type = "text/javascript"),
+      (r.async = !1),
+      (r.defer = !0),
+      (r.src = `${e}?${Math.random() * 999}`),
+      t.querySelector("head").appendChild(r);
+  }
+
+  e(widgetScriptUrl);
 })();
