@@ -39,20 +39,20 @@
         isLoggedIn ? "logged in." : "not logged in."
       }`
     );
-    // console.log(" calling offers api");
-    // FIXME: temp proxy
-    // fetch("https://perkd-dev.ngrok.io/offers", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     customerId: customerId,
-    //   }),
-    //   headers: {
-    //     "Access-Control-Allow-Credentials": "true",
-    //     // "Access-Control-Allow-Origin": "*",
-    //     "Access-Control-Allow-Methods": "GET, POST",
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+
+    // Attemp to check user offers
+    fetch("https://perkd-dev.ngrok.io/offers", {
+      method: "POST",
+      body: JSON.stringify({
+        customerId: customerId,
+      }),
+      headers: {
+        "Access-Control-Allow-Credentials": "true",
+        // "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST",
+        "Content-Type": "application/json",
+      },
+    });
 
     // if (window.fetch) {
     //   fetch(`https://${shopName}/discount/abc`, {
