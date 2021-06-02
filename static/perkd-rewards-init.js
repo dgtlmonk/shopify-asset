@@ -41,24 +41,18 @@
     );
 
     // Attemp to check user offers
-    fetch("https://perkd-dev.ngrok.io/offers", {
+    fetch("https://perkd-dev.ngrok.io/rewards", {
       method: "POST",
       body: JSON.stringify({
         customerId: customerId,
       }),
       headers: {
         "Access-Control-Allow-Credentials": "true",
-        // "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST",
         "Content-Type": "application/json",
       },
     });
-
-    // if (window.fetch) {
-    //   fetch(`https://${shopName}/discount/abc`, {
-    //     method: "GET",
-    //   });
-    // }
   }
 })();
 
