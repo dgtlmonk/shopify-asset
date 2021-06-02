@@ -28,8 +28,8 @@ var widgetScriptUrl =
   let el = document.createRange().createContextualFragment(`
     <div class="perkd-rewards-widget"
      style="position:fixed;
-     width:60px;
-     height:60px;
+     width:100px;
+     height:80px;
      bottom:0;
      right:12px;
      z-index:2147483649 !important;"
@@ -58,23 +58,10 @@ var widgetScriptUrl =
     (r.type = "text/javascript"),
       (r.async = !1),
       (r.defer = !0),
-      (r.src = `${e}?${Math.random() * 999}`),
-      t.querySelector("head").appendChild(r);
-  }
-
-  e(assetUrl);
-})();
-
-(() => {
-  function e(e) {
-    var t = document,
-      r = t.createElement("script");
-    (r.type = "text/javascript"),
-      (r.async = !1),
-      (r.defer = !0),
-      (r.src = `${e}?${Math.random() * 999}`),
+      (r.src = `${e}?${Math.random() * 999}`), // cache buster
       t.querySelector("head").appendChild(r);
   }
 
   e(widgetScriptUrl);
+  e(assetUrl);
 })();
