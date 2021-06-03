@@ -24,9 +24,9 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
   cssResource.href =
     "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
-  cssResource.rel = t ? "stylesheet" : "prefetch";
+  cssResource.rel = t ? "stylesheet" : "preload";
   cssResource.as = "style";
-  document.head.appendChild(importedScript);
+  document.head.appendChild(cssResource);
 })();
 
 // (() => {
