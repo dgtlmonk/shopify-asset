@@ -14,21 +14,36 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
   loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
   loadScript(`${assetRoot}/perkd-rewards-init.js`);
+
+  var cssResource = document.createElement("link"),
+    t = !!(
+      cssResource &&
+      cssResource.supports &&
+      cssResource.supports("prefetch")
+    );
+
+  cssResource.href =
+    "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
+  cssResource.rel = t ? "stylesheet" : "prefetch";
+  cssResource.as = "style";
+  document.head.appendChild(importedScript);
 })();
 
-(() => {
-  let e = document.createElement("link").relList,
-    t = !!(e && e.supports && e.supports("prefetch"));
+// (() => {
+//   let e = document.createElement("link").relList,
+//     t = !!(e && e.supports && e.supports("prefetch"));
 
-  function loadResource(srcUrl, relType, asType = "script") {
-    let i = document.createElement("link");
-    (i.href = srcUrl),
-      t ? (i.rel = "prefetch") : ((i.rel = relType), (i.as = asType)),
-      document.querySelector("head").appendChild(i);
-  }
+//   function loadResource(srcUrl, relType, asType = "script") {
+//     let i = document.createElement("link");
+//     (i.href = srcUrl),
+//       t ? (i.rel = "prefetch") : ((i.rel = relType), (i.as = asType)),
+//       document.querySelector("head").appendChild(i);
+//   }
 
-  loadResource(`${assetRoot}/perkd-rewards.css`, "stylesheet", "style");
-})(async () => {
+//   loadResource(`${assetRoot}/perkd-rewards.css`, "stylesheet", "style");
+// })
+
+(async () => {
   function getElById(id) {
     return document.getElementById(id);
   }
