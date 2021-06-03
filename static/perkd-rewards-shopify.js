@@ -1,8 +1,8 @@
-var assetUrl =
-  "https://perkd-shopify-asset.vercel.app/static/perkd-rewards-init.js";
+var assetRoot = "https://perkd-shopify-asset.vercel.app/static/";
 
-var widgetScriptUrl =
-  "https://perkd-shopify-asset.vercel.app/static/perkd-rewards-widget.min.js";
+var assetUrl = "perkd-rewards-init.js";
+
+var widgetScriptUrl = "perkd-rewards-widget.min.js";
 
 (async () => {
   function getElById(id) {
@@ -11,6 +11,7 @@ var widgetScriptUrl =
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
 
+  // TODO: place svelte code here
   let srcDoc = `<!DOCTYPE html>
   		<html lang="en-US">
           <head>
@@ -51,17 +52,31 @@ var widgetScriptUrl =
   // _iframe.addEventListener("load", () => {
 })();
 
+// (() => {
+// let e = document.createElement("link").relList,
+//   t = !!(e && e.supports && e.supports("prefetch"));
+// function i(srcUrl, relType, asType = 'script') {
+//   let i = document.createElement("link");
+//   (i.href =  src),
+//     t ? (i.rel = "prefetch") : ((i.rel = relType  ), (i.as = asType)),
+//     document.querySelector("head").appendChild(i);
+// }
+// i()
+// "preload",
+// })
+
+// TODO: refactor loading scripts
 (() => {
-  function e(e) {
+  function loadScript(e) {
     var t = document,
       r = t.createElement("script");
     (r.type = "text/javascript"),
-      (r.async = !1),
-      (r.defer = !0),
+      (r.async = false),
+      (r.defer = true),
       (r.src = `${e}?${Math.random() * 999}`), // cache buster
       t.querySelector("head").appendChild(r);
   }
 
-  e(widgetScriptUrl);
-  e(assetUrl);
+  loadScript(`${assetRoot}${widgetScriptUrl}`);
+  loadScript(`${assetRoot}${assetUrl}`);
 })();
