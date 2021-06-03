@@ -15,6 +15,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
   loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
   loadScript(`${assetRoot}/perkd-rewards-init.js`);
 
+  // load css
   var cssResource = document.createElement("link"),
     t = !!(
       cssResource &&
@@ -56,13 +57,11 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
           <head>
             <meta charset="utf-8">
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-          	<titel></title>
+          	<titel>Perkd Rewards</title>
           </head>
           <body>
-          	<button aria-label="Open Perkd Rewards panel" style="border-radius:30px;">
-              <span>Rewards</span>
-          	</button>
-          </body>
+           <div id="perkd-rewards-widget"></div>
+         </body>
        </html>`;
 
   let el = document.createRange().createContextualFragment(`
