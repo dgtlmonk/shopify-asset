@@ -30,6 +30,8 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
             <meta charset="utf-8">
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
           	<title>Perkd Rewards</title>
+                <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css" />
+    <script defer src="https://perkd-shopify-asset.vercel.app/static/perkd-rewards-widget.min.js"></script>
           </head>
           <body>
            <div id="perkd-rewards-widget"></div>
