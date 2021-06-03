@@ -1,10 +1,34 @@
-var assetRoot = "https://perkd-shopify-asset.vercel.app/static/";
+var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
-var assetUrl = "perkd-rewards-init.js";
+// TODO: refactor loading scripts
+(() => {
+  function loadScript(e) {
+    var t = document,
+      r = t.createElement("script");
+    (r.type = "text/javascript"),
+      (r.async = false),
+      (r.defer = true),
+      (r.src = `${e}?${Math.random() * 999}`), // cache buster
+      t.querySelector("head").appendChild(r);
+  }
 
-var widgetScriptUrl = "perkd-rewards-widget.min.js";
+  loadScript(`${assetRoot}/perkd-rewards-widget.min.js}`);
+  loadScript(`${assetRoot}/perkd-rewards-init.js`);
+})();
 
-(async () => {
+(() => {
+  let e = document.createElement("link").relList,
+    t = !!(e && e.supports && e.supports("prefetch"));
+
+  function loadResource(srcUrl, relType, asType = "script") {
+    let i = document.createElement("link");
+    (i.href = src),
+      t ? (i.rel = "prefetch") : ((i.rel = relType), (i.as = asType)),
+      document.querySelector("head").appendChild(i);
+  }
+
+  loadResource(`${assetRoot}/perkd-rewards.css`, "stylesheet", "style");
+})(async () => {
   function getElById(id) {
     return document.getElementById(id);
   }
@@ -50,33 +74,4 @@ var widgetScriptUrl = "perkd-rewards-widget.min.js";
     iEl.srcdoc = srcDoc;
   }
   // _iframe.addEventListener("load", () => {
-})();
-
-// (() => {
-// let e = document.createElement("link").relList,
-//   t = !!(e && e.supports && e.supports("prefetch"));
-// function i(srcUrl, relType, asType = 'script') {
-//   let i = document.createElement("link");
-//   (i.href =  src),
-//     t ? (i.rel = "prefetch") : ((i.rel = relType  ), (i.as = asType)),
-//     document.querySelector("head").appendChild(i);
-// }
-// i()
-// "preload",
-// })
-
-// TODO: refactor loading scripts
-(() => {
-  function loadScript(e) {
-    var t = document,
-      r = t.createElement("script");
-    (r.type = "text/javascript"),
-      (r.async = false),
-      (r.defer = true),
-      (r.src = `${e}?${Math.random() * 999}`), // cache buster
-      t.querySelector("head").appendChild(r);
-  }
-
-  loadScript(`${assetRoot}${widgetScriptUrl}`);
-  loadScript(`${assetRoot}${assetUrl}`);
 })();
