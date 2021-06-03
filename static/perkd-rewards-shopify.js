@@ -23,7 +23,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
 
-  // TODO: place svelte code here
+  // FIXME : temp width height
   let srcDoc = `<!DOCTYPE html>
   		<html lang="en-US">
           <head>
@@ -43,8 +43,8 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
   let el = document.createRange().createContextualFragment(`
     <div class="perkd-rewards-widget"
      style="position:fixed;
-     width:100px;
-     height:50px;
+     width:300px;
+     height:300px;
      bottom:6px;
      right:6px;
      z-index:2147483649 !important;"
