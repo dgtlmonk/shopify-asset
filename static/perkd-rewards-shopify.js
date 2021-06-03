@@ -34,7 +34,9 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
     <script defer src="https://perkd-shopify-asset.vercel.app/static/perkd-rewards-widget.min.js"></script>
           </head>
           <body>
-           <div id="perkd-rewards-widget"></div>
+            <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
+              <div id="perkd-rewards-widget"></div>
+            </div>
          </body>
        </html>`;
 
@@ -48,11 +50,11 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
      z-index:2147483649 !important;"
      aria-live="polite"
      >
-    <div id="perkd-rewards-widget-frame-container" style="overflow:hidden">
-	    <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame" scrolling="no"
-      style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"/>
-  </div>
-</div>`);
+      <div id="perkd-rewards-widget-frame-container" style="overflow:hidden">
+	      <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame" scrolling="no"
+        style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"/>
+      </div>
+    </div>`);
 
   document.body.appendChild(el);
   const iEl = getElById("perkd-rewards-widget-frame");
