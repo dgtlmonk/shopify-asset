@@ -34,21 +34,20 @@
   };
 
   // FIXME: redundant declaration
-
-  console.log(" dispatching custom event");
-  window.dispatchEvent(
-    new CustomEvent("perkd::init-script-on-load", {
-      detail: {
-        customerId,
-        isLoggedIn,
-        shopify: true,
-        shop: shopName,
-        userAttributes: attr,
-        lang: shopLocale,
-        APIKey: APIKey,
-      },
-    })
-  );
+  // console.log(" dispatching custom event");
+  // window.dispatchEvent(
+  //   new CustomEvent("perkd::init-script-on-load", {
+  //     detail: {
+  //       customerId,
+  //       isLoggedIn,
+  //       shopify: true,
+  //       shop: shopName,
+  //       userAttributes: attr,
+  //       lang: shopLocale,
+  //       APIKey: APIKey,
+  //     },
+  //   })
+  // );
 
   if (isLoggedIn) {
     console.log(
