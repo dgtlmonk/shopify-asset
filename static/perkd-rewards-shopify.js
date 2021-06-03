@@ -44,9 +44,9 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
     <div class="perkd-rewards-widget"
      style="position:fixed;
      width:100px;
-     height:80px;
-     bottom:0;
-     right:12px;
+     height:50px;
+     bottom:6px;
+     right6px;
      z-index:2147483649 !important;"
      aria-live="polite"
      >
