@@ -12,7 +12,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
       t.querySelector("head").appendChild(r);
   }
 
-  loadScript(`${assetRoot}/perkd-rewards-widget.min.js}`);
+  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
   loadScript(`${assetRoot}/perkd-rewards-init.js`);
 })();
 
