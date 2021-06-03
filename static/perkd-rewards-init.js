@@ -33,6 +33,21 @@
     APIKey: APIKey,
   };
 
+  // FIXME: redundant declaration
+  window.dispatchEvent(
+    new CustomEvent("perkd::init-script-on-load", {
+      detail: {
+        customerId,
+        isLoggedIn,
+        shopify: true,
+        shop: shopName,
+        userAttributes: attr,
+        lang: shopLocale,
+        APIKey: APIKey,
+      },
+    })
+  );
+
   if (isLoggedIn) {
     console.log(
       `@rewards-init.js -- user is ${

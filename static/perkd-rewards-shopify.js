@@ -84,20 +84,20 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
       t.querySelector("head").appendChild(r);
   }
 
-  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
   loadScript(`${assetRoot}/perkd-rewards-init.js`);
+  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
 
   // load css
-  var cssResource = document.createElement("link"),
-    t = !!(
-      cssResource &&
-      cssResource.supports &&
-      cssResource.supports("prefetch")
-    );
+  // var cssResource = document.createElement("link"),
+  //   t = !!(
+  //     cssResource &&
+  //     cssResource.supports &&
+  //     cssResource.supports("prefetch")
+  //   );
 
-  cssResource.href =
-    "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
-  cssResource.rel = t ? "stylesheet" : "preload";
-  cssResource.as = "style";
-  document.head.appendChild(cssResource);
+  // cssResource.href =
+  //   "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
+  // cssResource.rel = t ? "stylesheet" : "preload";
+  // cssResource.as = "style";
+  // document.head.appendChild(cssResource);
 })();
