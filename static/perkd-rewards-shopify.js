@@ -22,7 +22,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
   function loadResource(srcUrl, relType, asType = "script") {
     let i = document.createElement("link");
-    (i.href = src),
+    (i.href = srcUrl),
       t ? (i.rel = "prefetch") : ((i.rel = relType), (i.as = asType)),
       document.querySelector("head").appendChild(i);
   }
