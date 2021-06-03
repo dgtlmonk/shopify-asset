@@ -34,6 +34,8 @@
   };
 
   // FIXME: redundant declaration
+
+  console.log(" dispatching custom event");
   window.dispatchEvent(
     new CustomEvent("perkd::init-script-on-load", {
       detail: {
