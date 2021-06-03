@@ -46,7 +46,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
      width:100px;
      height:50px;
      bottom:6px;
-     right6px;
+     right:6px;
      z-index:2147483649 !important;"
      aria-live="polite"
      >
