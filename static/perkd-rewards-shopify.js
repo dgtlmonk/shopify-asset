@@ -53,10 +53,10 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
   //   </div>`);
 
   let el = document.createRange().createContextualFragment(`
-    <div class="perkd-rewards-widget-app" aria-live="polite">
-      <div id="perkd-rewards-widget-frame-container" style="overflow:hidden
-       position:fixed; width:300px; height:300px;
+    <div class="perkd-rewards-widget-app" aria-live="polite"
+        style="overflow:hidden; position:fixed; width:300px; height:300px;
        bottom:6px; right:6px; z-index:2147483649 !important;">
+      <div id="perkd-rewards-widget-frame-container">
     	        <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame" scrolling="no"
                style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"/>
       </div>
