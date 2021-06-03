@@ -1,34 +1,6 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
 // TODO: refactor loading scripts
-(() => {
-  function loadScript(e) {
-    var t = document,
-      r = t.createElement("script");
-    (r.type = "text/javascript"),
-      (r.async = false),
-      (r.defer = true),
-      (r.src = `${e}?${Math.random() * 999}`), // cache buster
-      t.querySelector("head").appendChild(r);
-  }
-
-  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
-  loadScript(`${assetRoot}/perkd-rewards-init.js`);
-
-  // load css
-  var cssResource = document.createElement("link"),
-    t = !!(
-      cssResource &&
-      cssResource.supports &&
-      cssResource.supports("prefetch")
-    );
-
-  cssResource.href =
-    "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
-  cssResource.rel = t ? "stylesheet" : "preload";
-  cssResource.as = "style";
-  document.head.appendChild(cssResource);
-})();
 
 // (() => {
 //   let e = document.createElement("link").relList,
@@ -57,7 +29,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
           <head>
             <meta charset="utf-8">
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-          	<titel>Perkd Rewards</title>
+          	<title>Perkd Rewards</title>
           </head>
           <body>
            <div id="perkd-rewards-widget"></div>
@@ -88,4 +60,33 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
     iEl.srcdoc = srcDoc;
   }
   // _iframe.addEventListener("load", () => {
+})();
+
+(() => {
+  function loadScript(e) {
+    var t = document,
+      r = t.createElement("script");
+    (r.type = "text/javascript"),
+      (r.async = false),
+      (r.defer = true),
+      (r.src = `${e}?${Math.random() * 999}`), // cache buster
+      t.querySelector("head").appendChild(r);
+  }
+
+  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
+  loadScript(`${assetRoot}/perkd-rewards-init.js`);
+
+  // load css
+  var cssResource = document.createElement("link"),
+    t = !!(
+      cssResource &&
+      cssResource.supports &&
+      cssResource.supports("prefetch")
+    );
+
+  cssResource.href =
+    "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
+  cssResource.rel = t ? "stylesheet" : "preload";
+  cssResource.as = "style";
+  document.head.appendChild(cssResource);
 })();
