@@ -63,6 +63,7 @@ loadScript(`${assetRoot}/perkd-rewards-init.js`);
   //     <iframe allowfullscreen name="perked-widget-launcher-frame" title="Perkd Rewards"></iframe>
   //   </div>`);
 
+  // FIXME: width/height is blocking the page!
   let el = document.createRange().createContextualFragment(`
     <div class="perkd-rewards-widget-app" aria-live="polite"
         style="overflow:hidden; position:fixed; width:300px; height:300px;
@@ -86,22 +87,7 @@ loadScript(`${assetRoot}/perkd-rewards-init.js`);
       loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
     });
   }
-  // _iframe.addEventListener("load", () => {
 })();
-
-// (() => {
-//   function loadScript(e) {
-//     var t = document,
-//       r = t.createElement("script");
-//     (r.type = "text/javascript"),
-//       (r.async = false),
-//       (r.defer = true),
-//       (r.src = `${e}?${Math.random() * 999}`), // cache buster
-//       t.querySelector("head").appendChild(r);
-//   }
-
-//   loadScript(`${assetRoot}/perkd-rewards-init.js`);
-//   loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
 
 // load css
 // var cssResource = document.createElement("link"),

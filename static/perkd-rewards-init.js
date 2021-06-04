@@ -33,24 +33,8 @@
     APIKey: APIKey,
   };
 
-  // FIXME: redundant declaration
-  // console.log(" dispatching custom event");
-  // window.dispatchEvent(
-  //   new CustomEvent("perkd::init-script-on-load", {
-  //     detail: {
-  //       customerId,
-  //       isLoggedIn,
-  //       shopify: true,
-  //       shop: shopName,
-  //       userAttributes: attr,
-  //       lang: shopLocale,
-  //       APIKey: APIKey,
-  //     },
-  //   })
-  // );
-
   if (isLoggedIn) {
-    console.log("[PERKD INIT SCRIPT] User not logged in.");
+    console.log("[PERKD INIT SCRIPT] User logged in.");
 
     // Attemp to check user offers
     fetch("https://perkd-dev.ngrok.io/rewards", {
