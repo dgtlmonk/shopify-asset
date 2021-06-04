@@ -50,11 +50,7 @@
   // );
 
   if (isLoggedIn) {
-    console.log(
-      `@rewards-init.js -- user is ${
-        isLoggedIn ? "logged in." : "not logged in."
-      }`
-    );
+    console.log("[PERKD INIT SCRIPT] User not logged in.");
 
     // Attemp to check user offers
     fetch("https://perkd-dev.ngrok.io/rewards", {
@@ -69,9 +65,9 @@
         "Content-Type": "application/json",
       },
     });
+  } else {
+    console.log("[PERKD INIT SCRIPT] User not logged in.");
   }
-})();
 
-(() => {
   console.log("pekrd-rewards-init script loaded");
 })();
