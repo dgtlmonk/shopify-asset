@@ -82,8 +82,7 @@ loadScript(`${assetRoot}/perkd-rewards-init.js`);
     iEl.srcdoc = srcDoc;
 
     iEl.addEventListener("load", () => {
-      console.log("iframe loaded ");
-      // loadScript(`${assetRoot}/perkd-rewards-init.js`);
+      // TODO: Load CSS via script
       loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
     });
   }
