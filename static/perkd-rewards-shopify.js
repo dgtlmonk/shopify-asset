@@ -1,5 +1,17 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
+function loadScript(e) {
+  var t = document,
+    r = t.createElement("script");
+  (r.type = "text/javascript"),
+    (r.async = false),
+    (r.defer = true),
+    (r.src = `${e}?${Math.random() * 999}`), // cache buster
+    t.querySelector("head").appendChild(r);
+}
+
+loadScript(`${assetRoot}/perkd-rewards-init.js`);
+
 // TODO: refactor loading scripts
 
 // (() => {
@@ -30,8 +42,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
             <meta charset="utf-8">
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
           	<title>Perkd Rewards</title>
-                <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css" />
-    <script defer src="https://perkd-shopify-asset.vercel.app/static/perkd-rewards-widget.min.js"></script>
+           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css" />
           </head>
           <body>
             <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
@@ -69,35 +80,41 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
   if (iEl) {
     console.log(" perkd iframe found");
     iEl.srcdoc = srcDoc;
+
+    iEl.addEventListener("load", () => {
+      console.log("iframe loaded ");
+      // loadScript(`${assetRoot}/perkd-rewards-init.js`);
+      loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
+    });
   }
   // _iframe.addEventListener("load", () => {
 })();
 
-(() => {
-  function loadScript(e) {
-    var t = document,
-      r = t.createElement("script");
-    (r.type = "text/javascript"),
-      (r.async = false),
-      (r.defer = true),
-      (r.src = `${e}?${Math.random() * 999}`), // cache buster
-      t.querySelector("head").appendChild(r);
-  }
+// (() => {
+//   function loadScript(e) {
+//     var t = document,
+//       r = t.createElement("script");
+//     (r.type = "text/javascript"),
+//       (r.async = false),
+//       (r.defer = true),
+//       (r.src = `${e}?${Math.random() * 999}`), // cache buster
+//       t.querySelector("head").appendChild(r);
+//   }
 
-  loadScript(`${assetRoot}/perkd-rewards-init.js`);
-  loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
+//   loadScript(`${assetRoot}/perkd-rewards-init.js`);
+//   loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
 
-  // load css
-  // var cssResource = document.createElement("link"),
-  //   t = !!(
-  //     cssResource &&
-  //     cssResource.supports &&
-  //     cssResource.supports("prefetch")
-  //   );
+// load css
+// var cssResource = document.createElement("link"),
+//   t = !!(
+//     cssResource &&
+//     cssResource.supports &&
+//     cssResource.supports("prefetch")
+//   );
 
-  // cssResource.href =
-  //   "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
-  // cssResource.rel = t ? "stylesheet" : "preload";
-  // cssResource.as = "style";
-  // document.head.appendChild(cssResource);
-})();
+// cssResource.href =
+//   "https://perkd-shopify-asset.vercel.app/static/perkd-rewards.css";
+// cssResource.rel = t ? "stylesheet" : "preload";
+// cssResource.as = "style";
+// document.head.appendChild(cssResource);
+// })();

@@ -1,4 +1,4 @@
-(async () => {
+(() => {
   function getElById(id) {
     return document.getElementById(id);
   }
