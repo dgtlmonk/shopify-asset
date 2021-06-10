@@ -4,19 +4,12 @@
   }
 
   var customerId = getElById("perkd-customerID").value;
-  var APIKey = getElById("perkd-APIKey").value;
   var customerFirstName = getElById("perkd-customerFirstName").value;
   var customerLastName = getElById("perkd-customerLastName").value;
-  var shopName = getElById("perkd-shopName").value;
-  var totalSpent = getElById("perkd-totalSpent").value;
-  var ordersCount = getElById("perkd-ordersCount").value;
+  var shop = getElById("perkd-shopName").value;
 
   var attr = {
     displayName: customerFirstName + " " + customerLastName,
-    custom: {
-      totalSpent: totalSpent,
-      ordersCount: ordersCount,
-    },
   };
 
   if (email && email != "") attr.email = email;
@@ -26,11 +19,9 @@
   window.__perkd__init__ = {
     customerId,
     isLoggedIn,
-    shopify: true,
-    shop: shopName,
+    shop,
     userAttributes: attr,
-    lang: shopLocale,
-    APIKey: APIKey,
+    // lang: shopLocale,
   };
 
   if (isLoggedIn) {
@@ -40,11 +31,11 @@
     fetch("https://perkd-dev.ngrok.io/rewards", {
       method: "POST",
       body: JSON.stringify({
-        customerId: customerId,
+        customerId: customerId,,
       }),
       headers: {
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "*"
         "Access-Control-Allow-Methods": "GET, POST",
         "Content-Type": "application/json",
       },
