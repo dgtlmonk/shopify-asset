@@ -31,11 +31,11 @@
     fetch("https://perkd-dev.ngrok.io/rewards", {
       method: "POST",
       body: JSON.stringify({
-        customerId: customerId,,
+        customerId: customerId,
       }),
       headers: {
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST",
         "Content-Type": "application/json",
       },
