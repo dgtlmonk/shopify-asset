@@ -10,8 +10,6 @@ function loadScript(e) {
     t.querySelector("head").appendChild(r);
 }
 
-loadScript(`${assetRoot}/perkd-rewards-init.js`);
-
 // TODO: refactor loading scripts
 
 // (() => {
@@ -29,6 +27,8 @@ loadScript(`${assetRoot}/perkd-rewards-init.js`);
 // })
 
 (async () => {
+  loadScript(`${assetRoot}/perkd-rewards-init.js`);
+
   function getElById(id) {
     return document.getElementById(id);
   }
