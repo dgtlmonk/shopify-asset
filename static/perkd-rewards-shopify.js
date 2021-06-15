@@ -46,7 +46,7 @@ function loadScript(e) {
           </head>
           <body>
             <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
-              <div id="perkd-rewards-widget"></div>
+              <div id="perkd-rewards-widget-launcher"></div>
             </div>
          </body>
        </html>`;
@@ -65,21 +65,29 @@ function loadScript(e) {
 
   // FIXME: width/height is blocking the page!
   let el = document.createRange().createContextualFragment(`
-    <div class="perkd-rewards-widget-app" aria-live="polite"
-        style="overflow:hidden; position:fixed; width:300px; height:300px;
-       bottom:6px; right:6px; z-index:2147483649 !important;">
-      <div id="perkd-rewards-widget-frame-container">
-    	        <iframe title="Perkd Rewards Program Launcher" id="perkd-rewards-widget-frame" scrolling="no"
-               style="position:absolute; height:0; max-height:100%; max-width:100%; min-height:100%; min-width:100%; width:0; border:0; outline:0; right:0; bottom:0"/>
-      </div>
+    <div id="perkd-rewards-widget-wrapper"
+          aria-live="polite"
+          style="overflow:hidden; position:fixed;
+                 width:300px; height:300px;
+                 bottom:6px; right:6px;
+                 z-index:2147483649 !important;">
+      <div>
+    	  <iframe id="perkd-rewards-widget-frame"
+                title="Perkd Rewards Program Launcher"
+                style="position:absolute; height:0; max-height:100%; max-width:100%;
+                       min-height:100%; min-width:100%;
+                       width:0; border:0; outline:0;
+                       right:0; bottom:0"
+                scrolling="no"/>
+        </div>
       <iframe allowfullscreen name="perked-widget-launcher-frame" title="Perkd Rewards"></iframe>
     </div>`);
 
   document.body.appendChild(el);
-  const iEl = getElById("perkd-rewards-widget-frame");
+  const iEl = getElById("perkd-rewards-widget-launcher-frame");
 
   if (iEl) {
-    console.log(" perkd iframe found");
+    console.info("perkd iframe found");
     iEl.srcdoc = srcDoc;
 
     iEl.addEventListener("load", () => {
