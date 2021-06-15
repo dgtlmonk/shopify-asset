@@ -2,12 +2,12 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
 function loadScript(src, isAsync, isDefer) {
   var d = document,
-    s = d.createElement("script");
-  (s.type = "text/javascript"),
-    (s.async = isAsync),
-    (s.defer = isDefer),
-    (s.src = `${src}?${Math.random() * 999}`), // cache buster
-    d.querySelector("head").appendChild(r);
+    el = d.createElement("script");
+  (el.type = "text/javascript"),
+    (el.async = isAsync),
+    (el.defer = isDefer),
+    (el.src = `${src}?${Math.random() * 999}`), // cache buster
+    d.querySelector("head").appendChild(el);
 }
 
 function loadAsyncScript(src) {
