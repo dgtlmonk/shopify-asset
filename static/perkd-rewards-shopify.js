@@ -80,7 +80,7 @@ function loadScript(e) {
                        right:0; bottom:0"
                 scrolling="no"/>
         </div>
-      <iframe allowfullscreen id="perked-widget-launcher-frame" title="Perkd Rewards"/>
+      <iframe allowfullscreen id="perked-rewards-widget-launcher-frame" title="Perkd Rewards"/>
     </div>`);
 
   document.body.appendChild(el);
