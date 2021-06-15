@@ -49,19 +49,21 @@ function loadDeferScript(src) {
   if (isLoggedIn) {
     console.log("[PERKD INIT SCRIPT] User logged in.");
 
+    // TODO:  check offers
+
     // Attemp to check user offers
-    fetch("https://perkd-dev.ngrok.io/rewards", {
-      method: "POST",
-      body: JSON.stringify({
-        customerId: customerId,
-      }),
-      headers: {
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST",
-        "Content-Type": "application/json",
-      },
-    });
+    // fetch("https://perkd-dev.ngrok.io/rewards", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     customerId: customerId,
+    //   }),
+    //   headers: {
+    //     "Access-Control-Allow-Credentials": "true",
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Access-Control-Allow-Methods": "GET, POST",
+    //     "Content-Type": "application/json",
+    //   },
+    // });
   } else {
     console.log("[PERKD INIT SCRIPT] User not logged in.");
   }
