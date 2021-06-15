@@ -27,11 +27,53 @@ function loadScript(e) {
 // })
 
 (async () => {
-  loadScript(`${assetRoot}/perkd-rewards-init.js`);
+  // loadScript(`${assetRoot}/perkd-rewards-init.js`);
 
   function getElById(id) {
     return document.getElementById(id);
   }
+
+  var customerId = getElById("perkd-customerID").value;
+  var customerFirstName = getElById("perkd-customerFirstName").value;
+  var customerLastName = getElById("perkd-customerLastName").value;
+  var shop = getElById("perkd-shopName").value;
+
+  var attr = {
+    displayName: customerFirstName + " " + customerLastName,
+  };
+
+  if (email && email != "") attr.email = email;
+
+  var isLoggedIn = customerId.length > 0;
+
+  window.__perkd__init__ = {
+    customerId,
+    isLoggedIn,
+    shop,
+    userAttributes: attr,
+    // lang: shopLocale,
+  };
+
+  if (isLoggedIn) {
+    console.log("[PERKD INIT SCRIPT] User logged in.");
+
+    // Attemp to check user offers
+    fetch("https://perkd-dev.ngrok.io/rewards", {
+      method: "POST",
+      body: JSON.stringify({
+        customerId: customerId,
+      }),
+      headers: {
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST",
+        "Content-Type": "application/json",
+      },
+    });
+  } else {
+    console.log("[PERKD INIT SCRIPT] User not logged in.");
+  }
+
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
 
@@ -65,15 +107,14 @@ function loadScript(e) {
 
   // FIXME: width/height is blocking the page!
   let el = document.createRange().createContextualFragment(`
-    <div id="perkd-rewards-widget-wrapper"
+    <div id="perkd-rewards-widget-container"
           aria-live="polite"
           style="overflow:hidden; position:fixed;
                  width:300px; height:300px;
-                 bottom:6px; right:6px;
+                 bottom:8px; right:8px;
                  z-index:2147483649 !important;">
-      <div>
+      <div class="perkd-rewards-widget-frame-container">
     	  <iframe id="perkd-rewards-widget-frame"
-                title="Perkd Rewards Program Launcher"
                scrolling="no"></iframe>
       </div>
       <iframe allowfullscreen
