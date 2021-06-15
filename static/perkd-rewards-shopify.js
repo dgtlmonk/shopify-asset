@@ -1,30 +1,22 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
 
-function loadScript(e) {
-  var t = document,
-    r = t.createElement("script");
-  (r.type = "text/javascript"),
-    (r.async = false),
-    (r.defer = true),
-    (r.src = `${e}?${Math.random() * 999}`), // cache buster
-    t.querySelector("head").appendChild(r);
+function loadScript(src, isAsync, isDefer) {
+  var d = document,
+    s = d.createElement("script");
+  (s.type = "text/javascript"),
+    (s.async = isAsync),
+    (s.defer = isDefer),
+    (s.src = `${src}?${Math.random() * 999}`), // cache buster
+    d.querySelector("head").appendChild(r);
 }
 
-// TODO: refactor loading scripts
+function loadAsyncScript(src) {
+  loadScript(src, true, false);
+}
 
-// (() => {
-//   let e = document.createElement("link").relList,
-//     t = !!(e && e.supports && e.supports("prefetch"));
-
-//   function loadResource(srcUrl, relType, asType = "script") {
-//     let i = document.createElement("link");
-//     (i.href = srcUrl),
-//       t ? (i.rel = "prefetch") : ((i.rel = relType), (i.as = asType)),
-//       document.querySelector("head").appendChild(i);
-//   }
-
-//   loadResource(`${assetRoot}/perkd-rewards.css`, "stylesheet", "style");
-// })
+function loadDeferScript(src) {
+  loadScript(src, false, true);
+}
 
 (async () => {
   // loadScript(`${assetRoot}/perkd-rewards-init.js`);
@@ -137,7 +129,7 @@ function loadScript(e) {
 
     iEl.addEventListener("load", () => {
       // TODO: Load CSS via script
-      loadScript(`${assetRoot}/perkd-rewards-widget.min.js`);
+      loadAsyncScript(`${assetRoot}/perkd-rewards-widget.min.js`);
     });
   }
 })();
