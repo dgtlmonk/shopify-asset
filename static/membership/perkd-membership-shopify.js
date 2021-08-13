@@ -107,7 +107,7 @@ function loadDeferScript(src) {
                  width:300px; height:300px;
                  bottom:8px; right:8px;
                  z-index:2147483649 !important;">
-      <div class="perkd-rewards-widget-frame-container">
+      <div class="perkd-rewards-widget-frame">
     	  <iframe id="perkd-rewards-widget-frame"
                scrolling="no"></iframe>
       </div>
