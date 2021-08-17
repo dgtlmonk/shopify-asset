@@ -104,7 +104,7 @@ function loadDeferScript(src) {
     <div id="perkd-membership-widget-container"
           aria-live="polite"
           style="overflow:hidden; position:fixed;
-                 width:300px; height:300px;
+                 width:400px; height:350px;
                  bottom:8px; right:8px;
                  z-index:2147483649 !important;">
       <div class="perkd-membership-widget-frame">
