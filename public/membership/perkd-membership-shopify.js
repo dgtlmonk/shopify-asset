@@ -1,4 +1,4 @@
-var assetRoot = "https://perkd-shopify-asset.vercel.app/static";
+var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 
 function loadScript(src, isAsync, isDefer) {
   var d = document,
