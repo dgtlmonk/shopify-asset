@@ -34,7 +34,7 @@ function loadDeferScript(src) {
     displayName: customerFirstName + " " + customerLastName,
   };
 
-  if (email && email != "") attr.email = email;
+  // if (email && email != "") attr.email = email;
 
   var isLoggedIn = customerId.length > 0;
 
