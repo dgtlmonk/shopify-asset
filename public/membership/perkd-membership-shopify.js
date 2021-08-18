@@ -79,7 +79,9 @@ function loadDeferScript(src) {
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
           	<title>Perkd membership</title>
            <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership.css" />
-           <style>@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap");</style>
+           <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
           </head>
           <body>
             <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
