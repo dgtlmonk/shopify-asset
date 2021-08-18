@@ -110,11 +110,7 @@ function loadDeferScript(src) {
                  width:400px; height:350px;
                  bottom:8px; right:8px;
                  z-index:2147483649 !important;">
-      <div class="perkd-membership-widget-frame">
-    	  <iframe id="perkd-membership-widget-frame"
-               scrolling="no"></iframe>
-      </div>
-      <iframe allowfullscreen
+     <iframe allowfullscreen
               id="perkd-membership-widget-launcher-frame"
               title="Perkd Membership"
               style="position:absolute; height:0; max-height:100%; max-width:100%;
