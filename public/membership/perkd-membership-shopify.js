@@ -82,6 +82,25 @@ function loadDeferScript(src) {
   //     <iframe allowfullscreen name="perked-widget-launcher-frame" title="Perkd membership"></iframe>
   //   </div>`);
 
+  // FIXME : temp width height
+  let srcDoc = `<!DOCTYPE html>
+  		<html lang="en-US">
+          <head>
+            <meta charset="utf-8">
+          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+          	<title>Perkd membership</title>
+           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership.css" />
+           <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+          </head>
+          <body>
+            <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
+              <div id="perkd-membership-widget-launcher"></div>
+            </div>
+         </body>
+       </html>`;
+
   // FIXME: width/height is blocking the page!
   let el = document.createRange().createContextualFragment(`
     <div id="perkd-membership-widget-container"
@@ -108,25 +127,6 @@ function loadDeferScript(src) {
 
   document.body.appendChild(el);
   const iEl = getElById("perkd-membership-widget-shopify-launcher-iframe");
-
-  // FIXME : temp width height
-  const srcDoc = `<!DOCTYPE html>
-  		<html lang="en-US">
-          <head>
-            <meta charset="utf-8">
-          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-          	<title>Perkd membership</title>
-           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership.css" />
-           <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-          </head>
-          <body>
-            <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
-              <div id="perkd-membership-widget-launcher"></div>
-            </div>
-         </body>
-       </html>`;
 
   if (iEl) {
     console.info(
