@@ -106,8 +106,10 @@ function loadDeferScript(src) {
     <div id="perkd-membership-widget-container"
           aria-live="polite"
           style="overflow:hidden; position:fixed;
-                 width:400px; height:350px;
-                 bottom:8px; right:8px;
+                width: 400px;
+                height: 400px;
+                bottom: -6px;
+                right: -2px;
                  z-index:2147483649 !important;">
       <iframe allowfullscreen
               id="perkd-membership-widget-shopify-launcher-iframe"
