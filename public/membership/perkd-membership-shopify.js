@@ -109,7 +109,6 @@ function loadDeferScript(src) {
                  width:400px; height:350px;
                  bottom:8px; right:8px;
                  z-index:2147483649 !important;">
-
       <iframe allowfullscreen
               id="perkd-membership-widget-shopify-launcher-iframe"
               title="Perkd Membership"
