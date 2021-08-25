@@ -35,7 +35,6 @@ function loadDeferScript(src) {
   };
 
   // if (email && email != "") attr.email = email;
-
   var isLoggedIn = customerId.length > 0;
 
   window.__perkd__init__ = {
@@ -70,25 +69,6 @@ function loadDeferScript(src) {
 
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
-
-  // FIXME : temp width height
-  let srcDoc = `<!DOCTYPE html>
-  		<html lang="en-US">
-          <head>
-            <meta charset="utf-8">
-          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-          	<title>Perkd membership</title>
-           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership.css" />
-           <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-          </head>
-          <body>
-            <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
-              <div id="perkd-membership-widget-launcher"></div>
-            </div>
-         </body>
-       </html>`;
 
   // TODO: Use this template for refactor
   // let el = document.createRange().createContextualFragment(`
@@ -129,8 +109,29 @@ function loadDeferScript(src) {
   document.body.appendChild(el);
   const iEl = getElById("perkd-membership-widget-launcher-frame");
 
+  // FIXME : temp width height
+  const srcDoc = `<!DOCTYPE html>
+  		<html lang="en-US">
+          <head>
+            <meta charset="utf-8">
+          	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+          	<title>Perkd membership</title>
+           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership.css" />
+           <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+          </head>
+          <body>
+            <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
+              <div id="perkd-membership-widget-launcher"></div>
+            </div>
+         </body>
+       </html>`;
+
   if (iEl) {
-    console.info("perkd iframe found");
+    console.info(
+      "[PERKD SHOPIFY] valid iframe found. Loadding script asset ..."
+    );
     iEl.srcdoc = srcDoc;
 
     iEl.addEventListener("load", () => {
