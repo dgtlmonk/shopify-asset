@@ -96,7 +96,7 @@ function loadDeferScript(src) {
                 scrolling="no"></iframe>
       </div>
       <iframe allowfullscreen
-              id="perkd-membership-widget-launcher-frame"
+              id="perkd-membership-widget-shopify-launcher-iframe"
               title="Perkd Membership"
               style="position:absolute; height:0; max-height:100%; max-width:100%;
                        min-height:100%; min-width:100%;
@@ -107,7 +107,7 @@ function loadDeferScript(src) {
     </div>`);
 
   document.body.appendChild(el);
-  const iEl = getElById("perkd-membership-widget-launcher-frame");
+  const iEl = getElById("perkd-membership-widget-shopify-launcher-iframe");
 
   // FIXME : temp width height
   const srcDoc = `<!DOCTYPE html>
