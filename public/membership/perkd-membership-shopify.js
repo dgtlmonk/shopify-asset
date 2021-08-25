@@ -89,10 +89,10 @@ function loadDeferScript(src) {
             <meta charset="utf-8">
           	<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
           	<title>Perkd membership</title>
-           <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership-widget.css" />
-           <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://perkd-shopify-asset.vercel.app/membership/perkd-membership-widget.css" />
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
           </head>
           <body>
             <div style="overflow: hidden; position: fixed; bottom: 0; right: 0">
@@ -109,12 +109,6 @@ function loadDeferScript(src) {
                  width:400px; height:350px;
                  bottom:8px; right:8px;
                  z-index:2147483649 !important;">
-
-      <div class="perkd-membership-widget-frame">
-    	  <iframe id="perkd-membership-widget-frame"
-                style="width: 0; height: 0;"
-                scrolling="no"></iframe>
-      </div>
 
       <iframe allowfullscreen
               id="perkd-membership-widget-shopify-launcher-iframe"
