@@ -108,7 +108,7 @@ function loadDeferScript(src) {
           style="overflow:hidden; position:fixed;
                 width: 420px;
                 height: 450px;
-                bottom: -6px;
+                bottom: 8px;
                 right: -2px;
                  z-index:2147483649 !important;">
       <iframe allowfullscreen
