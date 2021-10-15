@@ -42,7 +42,7 @@ function loadDeferScript(src) {
           window.parent.location.hostname
         )}`
       ).then(function (res) {
-        var { data } = res;
+        var [data] = res;
         var { isEnabled } = data;
 
         console.log(" mock api response ", data, isEnabled);
