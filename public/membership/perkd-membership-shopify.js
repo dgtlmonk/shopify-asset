@@ -34,7 +34,7 @@ function loadDeferScript(src) {
   scr.addEventListener("load", async () => {
     console.log("atomic script  loaded ", atomic);
     atomic(`${apiUrl}/membership/1`).then((res) => {
-      var [program] = res.data;
+      var [program] = res.xhr;
 
       console.log(" response ", program);
     });
