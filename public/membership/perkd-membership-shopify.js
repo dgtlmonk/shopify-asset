@@ -42,17 +42,13 @@ function loadDeferScript(src) {
           window.parent.location.hostname
         )}`
       ).then(function (res) {
-        // var { isEnabled } = data[0];
         var [program] = res.data;
+
+        var { isEnabled } = program;
         console.log(" mock api response ", program);
+        console.log(" program is enabled ", isEnabled);
       });
     }
-
-    // .then((res) => {
-    //   var [program] = res.xhr;
-
-    //   console.log(" response ", program);
-    // });
   });
 
   function getElById(id) {
