@@ -1,5 +1,9 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 
+if ($) {
+  console.log("JQuery present!");
+}
+
 function loadScript(src, isAsync, isDefer) {
   var d = document,
     el = d.createElement("script");
