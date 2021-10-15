@@ -1,3 +1,5 @@
+// refactor: create sdk to encapsulate processes
+
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
@@ -32,12 +34,16 @@ function loadDeferScript(src) {
   head.insertBefore(scr, head.firstChild);
 
   scr.addEventListener("load", async () => {
-    console.log("atomic script  loaded ", atomic);
-    atomic(`${apiUrl}/membership/1`).then((res) => {
-      var [program] = res.xhr;
+    if (atomic) {
+      console.log(" fetching data ");
+      atomic(`${apiUrl}/membership/1`);
+    }
 
-      console.log(" response ", program);
-    });
+    // .then((res) => {
+    //   var [program] = res.xhr;
+
+    //   console.log(" response ", program);
+    // });
   });
 
   function getElById(id) {
