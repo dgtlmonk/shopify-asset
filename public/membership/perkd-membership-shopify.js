@@ -46,6 +46,7 @@ function loadDeferScript(src) {
 
         // var { isEnabled } = program;
         console.log(" mock api response ", program);
+        console.log(" ----- ");
         console.log(" program is enabled ", program.isEnabled);
       });
     }
