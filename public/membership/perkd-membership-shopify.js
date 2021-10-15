@@ -36,7 +36,9 @@ function loadDeferScript(src) {
   scr.addEventListener("load", async () => {
     if (atomic) {
       console.log(" fetching data ");
-      atomic(`${apiUrl}/membership/1`);
+      atomic(`${apiUrl}/membership/1`).then(function (res) {
+        console.log(" mock api response ", res);
+      });
     }
 
     // .then((res) => {
