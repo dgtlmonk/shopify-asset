@@ -1,4 +1,5 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
+var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 
 function loadScript(src, isAsync, isDefer) {
   var d = document,
@@ -20,6 +21,19 @@ function loadDeferScript(src) {
 
 (async () => {
   // loadScript(`${assetRoot}/perkd-membership-init.js`);
+
+  var scr = document.createElement("script"),
+    head = document.head || document.getElementsByTagName("head")[0];
+
+  scr.src = `${assetRoot}/atomic.polyfills.min.js`;
+  scr.async = false;
+
+  head.insertBefore(scr, head.firstChild);
+
+  src.addEventListener("load", async () => {
+    console.log("atomic script  loaded ", atomic);
+  });
+  // /atomic.polyfills.min.js
 
   function getElById(id) {
     return document.getElementById(id);
