@@ -25,7 +25,7 @@ function loadDeferScript(src) {
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
 
-  scr.src = `${assetRoot}/atomic.polyfills.min.js`;
+  scr.src = `${libRoot}/atomic.polyfills.min.js`;
   scr.async = false;
 
   head.insertBefore(scr, head.firstChild);
