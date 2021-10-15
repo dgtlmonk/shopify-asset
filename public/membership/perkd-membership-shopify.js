@@ -1,5 +1,6 @@
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
+var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
 
 function loadScript(src, isAsync, isDefer) {
   var d = document,
@@ -32,8 +33,12 @@ function loadDeferScript(src) {
 
   scr.addEventListener("load", async () => {
     console.log("atomic script  loaded ", atomic);
+    atomic(`${apiUrl}/membership/1`).then((res) => {
+      var [program] = res;
+
+      console.log(" response ", program);
+    });
   });
-  // /atomic.polyfills.min.js
 
   function getElById(id) {
     return document.getElementById(id);
