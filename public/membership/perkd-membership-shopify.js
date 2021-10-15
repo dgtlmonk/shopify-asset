@@ -30,7 +30,7 @@ function loadDeferScript(src) {
 
   head.insertBefore(scr, head.firstChild);
 
-  src.addEventListener("load", async () => {
+  scr.addEventListener("load", async () => {
     console.log("atomic script  loaded ", atomic);
   });
   // /atomic.polyfills.min.js
