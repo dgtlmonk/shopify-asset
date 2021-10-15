@@ -25,7 +25,7 @@ function loadDeferScript(src) {
 (async () => {
   // loadScript(`${assetRoot}/perkd-membership-init.js`);
 
-  console.log(" path ", window.parent.location.pathname);
+  console.log(" path ", window.parent.location);
 
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
