@@ -44,9 +44,9 @@ function loadDeferScript(src) {
       ).then(function (res) {
         var [program] = res.data;
 
-        var { isEnabled } = program;
+        // var { isEnabled } = program;
         console.log(" mock api response ", program);
-        console.log(" program is enabled ", isEnabled);
+        console.log(" program is enabled ", program.isEnabled);
       });
     }
   });
