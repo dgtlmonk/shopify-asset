@@ -25,6 +25,8 @@ function loadDeferScript(src) {
 (async () => {
   // loadScript(`${assetRoot}/perkd-membership-init.js`);
 
+  console.log(" path ", window.parent.location.pathname);
+
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
 
@@ -35,11 +37,11 @@ function loadDeferScript(src) {
 
   scr.addEventListener("load", async () => {
     if (atomic) {
-      console.log(" fetching data ");
       atomic(`${apiUrl}/membership/1`).then(function (res) {
         var { data } = res;
+        var { isEnabled } = data;
 
-        console.log(" mock api response ", data);
+        console.log(" mock api response ", data, isEnabled);
       });
     }
 
