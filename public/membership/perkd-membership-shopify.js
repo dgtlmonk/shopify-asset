@@ -37,7 +37,11 @@ function loadDeferScript(src) {
 
   scr.addEventListener("load", async () => {
     if (atomic) {
-      atomic(`${apiUrl}/membership/1`).then(function (res) {
+      atomic(
+        `${apiUrl}/membership?programId=${btoa(
+          window.parent.location.hostname
+        )}`
+      ).then(function (res) {
         var { data } = res;
         var { isEnabled } = data;
 
