@@ -4,29 +4,8 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
 
-function loadScript(src, isAsync, isDefer) {
-  var d = document,
-    el = d.createElement("script");
-  (el.type = "text/javascript"),
-    (el.async = isAsync),
-    (el.defer = isDefer),
-    (el.src = `${src}?${Math.random() * 999}`), // cache buster
-    d.querySelector("head").appendChild(el);
-}
-
-function loadAsyncScript(src) {
-  loadScript(src, true, false);
-}
-
-function loadDeferScript(src) {
-  loadScript(src, false, true);
-}
-
 (async () => {
-  // loadScript(`${assetRoot}/perkd-membership-init.js`);
-
-  console.log(" path ", window.parent.location.hostname);
-
+  // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
 
@@ -48,55 +27,14 @@ function loadDeferScript(src) {
         console.log(" mock api response ", program);
         console.log(" ----- ");
         console.log(" program is enabled ", program.isEnabled);
+        if (program.isEnabled) {
+          initFloater();
+        } else {
+          console.info("Program membership is not enabled.");
+        }
       });
     }
   });
-
-  function getElById(id) {
-    return document.getElementById(id);
-  }
-
-  var customerId = getElById("perkd-customerID").value;
-  var customerFirstName = getElById("perkd-customerFirstName").value;
-  var customerLastName = getElById("perkd-customerLastName").value;
-  var shop = getElById("perkd-shopName").value;
-
-  var attr = {
-    displayName: customerFirstName + " " + customerLastName,
-  };
-
-  // if (email && email != "") attr.email = email;
-  var isLoggedIn = customerId.length > 0;
-
-  window.__perkd__init__ = {
-    customerId,
-    isLoggedIn,
-    shop,
-    userAttributes: attr,
-    // lang: shopLocale,
-  };
-
-  if (isLoggedIn) {
-    console.log("[PERKD INIT SCRIPT] User logged in.");
-
-    // TODO:  check offers
-
-    // Attemp to check user offers
-    // fetch("https://perkd-dev.ngrok.io/membership", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     customerId: customerId,
-    //   }),
-    //   headers: {
-    //     "Access-Control-Allow-Credentials": "true",
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Access-Control-Allow-Methods": "GET, POST",
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-  } else {
-    console.log("[PERKD INIT SCRIPT] User not logged in.");
-  }
 
   // TODO: preload UI preference from head scripTag
   //  n = await window.__smile_ui_init_data__;
@@ -112,9 +50,36 @@ function loadDeferScript(src) {
   //     </div>
   //     <iframe allowfullscreen name="perked-widget-launcher-frame" title="Perkd membership"></iframe>
   //   </div>`);
+})();
+
+function initFloater() {
+  var customerId = getElById("perkd-customerID").value;
+  var customerFirstName = getElById("perkd-customerFirstName").value;
+  var customerLastName = getElById("perkd-customerLastName").value;
+  var shop = getElById("perkd-shopName").value;
+
+  var attr = {
+    displayName: customerFirstName + " " + customerLastName,
+  };
+
+  var isLoggedIn = customerId.length > 0;
+
+  window.__perkd__init__ = {
+    customerId,
+    isLoggedIn,
+    shop,
+    userAttributes: attr,
+    // lang: shopLocale,
+  };
+
+  if (isLoggedIn) {
+    console.log("[PERKD INIT SCRIPT] User logged in.");
+  } else {
+    console.log("[PERKD INIT SCRIPT] User not logged in.");
+  }
 
   // FIXME : temp width height
-  let srcDoc = `<!DOCTYPE html>
+  const srcDoc = `<!DOCTYPE html>
   		<html lang="en-US">
           <head>
             <meta charset="utf-8">
@@ -133,7 +98,7 @@ function loadDeferScript(src) {
        </html>`;
 
   // FIXME: width/height is blocking the page!
-  let el = document.createRange().createContextualFragment(`
+  const el = document.createRange().createContextualFragment(`
     <div id="perkd-membership-widget-container"
           aria-live="polite"
           style="overflow:hidden; position:fixed;
@@ -167,7 +132,30 @@ function loadDeferScript(src) {
       loadAsyncScript(`${assetRoot}/perkd-membership-widget.min.js`);
     });
   }
-})();
+}
+
+// helpers
+function getElById(id) {
+  return document.getElementById(id);
+}
+
+function loadScript(src, isAsync, isDefer) {
+  var d = document,
+    el = d.createElement("script");
+  (el.type = "text/javascript"),
+    (el.async = isAsync),
+    (el.defer = isDefer),
+    (el.src = `${src}?${Math.random() * 999}`), // cache buster
+    d.querySelector("head").appendChild(el);
+}
+
+function loadAsyncScript(src) {
+  loadScript(src, true, false);
+}
+
+function loadDeferScript(src) {
+  loadScript(src, false, true);
+}
 
 // load css
 // var cssResource = document.createElement("link"),
