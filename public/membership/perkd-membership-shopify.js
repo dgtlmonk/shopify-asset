@@ -4,7 +4,7 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
 
-(async () => {
+window.__perkd__init__ = {}(async () => {
   // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
@@ -33,7 +33,10 @@ var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
           console.info("Program membership is not enabled.");
         }
 
-        window.__perkd__init__.isProgramEnabled = program.isEnabled || false;
+        window.__perkd__init__ = {
+          ...window.__perkd__init__,
+          isProgramEnabled: program.isEnabled || false,
+        };
       });
     }
   });
@@ -67,6 +70,7 @@ function initFloater() {
   var isLoggedIn = customerId.length > 0;
 
   window.__perkd__init__ = {
+    ...window.__perkd__init__,
     customerId,
     isLoggedIn,
     shop,
