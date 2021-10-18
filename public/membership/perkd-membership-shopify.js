@@ -24,9 +24,9 @@ var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
         var [program] = res.data;
 
         // var { isEnabled } = program;
-        console.log(" mock api response ", program);
-        console.log(" ----- ");
-        console.log(" program is enabled ", program.isEnabled);
+        // console.log(" mock api response ", program);
+        // console.log(" ----- ");
+        // console.log(" program is enabled ", program.isEnabled);
         if (program.isEnabled) {
           initFloater();
         } else {
