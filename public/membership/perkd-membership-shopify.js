@@ -4,7 +4,9 @@ var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
 
-window.__perkd__init__ = {}(async () => {
+window.__perkd__init__ = {};
+
+(async () => {
   // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
   var scr = document.createElement("script"),
     head = document.head || document.getElementsByTagName("head")[0];
