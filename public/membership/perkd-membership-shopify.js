@@ -98,7 +98,7 @@ function initFloater() {
          </body>
        </html>`;
 
-  // FIXME: width/height is blocking the page!
+  // FIXME: width/height transition
   const el = document.createRange().createContextualFragment(`
     <div id="perkd-membership-widget-container"
           aria-live="polite"
