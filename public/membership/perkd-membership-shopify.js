@@ -27,12 +27,15 @@ var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
         // console.log(" mock api response ", program);
         // console.log(" ----- ");
         // console.log(" program is enabled ", program.isEnabled);
-        if (program.isEnabled) {
+        if (program && program.isEnabled) {
           initFloater();
+        } else {
+          if (window.parent.location.hostname.includes("myshopify.com")) {
+            console.info("Program membership is not enabled.");
+          } else {
+            console.info("Theme test mode?");
+          }
         }
-        //  else {
-        //   console.info("Program membership is not enabled.");
-        // }
       });
     }
   });
