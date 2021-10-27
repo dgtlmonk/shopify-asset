@@ -23,11 +23,13 @@ var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
       ).then(function (res) {
         var [program] = res.data;
 
-        // var { isEnabled } = program;
-        // console.log(" mock api response ", program);
-        // console.log(" ----- ");
-        // console.log(" program is enabled ", program.isEnabled);
+        //  safe check when app is uninstalled and installed immediately
+        // shopify issue we have no contorl of.
         if (program && program.isEnabled) {
+          if (getElById("perkd-membership-widget-container")) {
+            return;
+          }
+
           initFloater();
         } else {
           if (window.parent.location.hostname.includes("myshopify.com")) {
