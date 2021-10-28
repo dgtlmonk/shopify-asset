@@ -130,9 +130,6 @@ function initFloater() {
   const iEl = getElById("perkd-membership-widget-shopify-launcher-iframe");
 
   if (iEl) {
-    console.info(
-      "[PERKD SHOPIFY] valid iframe found. Loadding script asset ..."
-    );
     iEl.srcdoc = srcDoc;
 
     iEl.addEventListener("load", () => {
