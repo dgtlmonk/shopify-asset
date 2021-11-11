@@ -2,7 +2,6 @@
 
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
-var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
 
 (async () => {
   // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
@@ -17,7 +16,7 @@ var apiUrl = "https://60e6fb1315387c00173e49d7.mockapi.io";
   scr.addEventListener("load", async () => {
     if (atomic) {
       atomic(
-        `${apiUrl}/membership?programId=${btoa(
+        `https://60e6fb1315387c00173e49d7.mockapi.io/membership?programId=${btoa(
           window.parent.location.hostname
         )}`
       ).then(function (res) {
