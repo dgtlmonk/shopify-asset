@@ -1,5 +1,3 @@
-// refactor: create sdk to encapsulate processes
-
 var assetRoot = "https://perkd-shopify-asset.vercel.app/membership";
 var libRoot = "https://perkd-shopify-asset.vercel.app/lib";
 
